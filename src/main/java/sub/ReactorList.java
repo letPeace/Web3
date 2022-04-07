@@ -9,22 +9,21 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Container {
+public class ReactorList{
 
     private String source;
     private ArrayList<Reactor> reactors;
 
-    public Container(String source, ArrayList<Reactor> reactors){
+    public ReactorList(String source, ArrayList<Reactor> reactors){
         setSource(source);
         setReactors(reactors);
     }
 
-    public Container(String source){
-        setSource(source);
-        setReactors(source);
+    public ReactorList(String pathname){
+        setReactorsList(pathname);
     }
 
-    public Container(){}
+    public ReactorList(){}
 
     // GET
 
@@ -48,11 +47,12 @@ public class Container {
 
     //
 
-    private void setReactors(String source){
+    private void setReactorsList(String pathname){
         try {
             ObjectMapper objectMapper = null;
-            String pathname = "D:\\_Mehi\\6sem\\INF\\web3maven\\src\\main\\java\\files\\ReactorType."+source;
-            switch(source){
+            String format = pathname.substring(pathname.lastIndexOf('.')+1);
+            setSource(format);
+            switch(format){
                 case("yaml"):
                     objectMapper = new ObjectMapper(new YAMLFactory());
                     break;
@@ -75,6 +75,7 @@ public class Container {
         for(Reactor reactor : reactors){
             reactor.print();
         }
+        System.out.println("~");
     }
 
 }
