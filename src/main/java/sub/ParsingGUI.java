@@ -78,13 +78,13 @@ public class ParsingGUI extends JFrame{
                 DefaultMutableTreeNode reactorBranch = null;
                 for(Reactor reactor : reactorList.getReactors()){
                     reactorBranch = new DefaultMutableTreeNode(reactor.getType(), true);
-                    reactorBranch.add(new DefaultMutableTreeNode(reactor.getBurnup(), false));
-                    reactorBranch.add(new DefaultMutableTreeNode(reactor.getKpd(), false));
-                    reactorBranch.add(new DefaultMutableTreeNode(reactor.getEnrichment(), false));
-                    reactorBranch.add(new DefaultMutableTreeNode(reactor.getTermalCapacity(), false));
-                    reactorBranch.add(new DefaultMutableTreeNode(reactor.getElectricalCapacity(), false));
-                    reactorBranch.add(new DefaultMutableTreeNode(reactor.getLifeTime(), false));
-                    reactorBranch.add(new DefaultMutableTreeNode(reactor.getFirstLoad(), false));
+                    reactorBranch.add(new DefaultMutableTreeNode("burnup = "+reactor.getBurnup(), false));
+                    reactorBranch.add(new DefaultMutableTreeNode("kpd = "+reactor.getKpd(), false));
+                    reactorBranch.add(new DefaultMutableTreeNode("enrichment = "+reactor.getEnrichment(), false));
+                    reactorBranch.add(new DefaultMutableTreeNode("termalCapacity = "+reactor.getTermalCapacity(), false));
+                    reactorBranch.add(new DefaultMutableTreeNode("electricalCapacity = "+reactor.getElectricalCapacity(), false));
+                    reactorBranch.add(new DefaultMutableTreeNode("lifeTime = "+reactor.getLifeTime(), false));
+                    reactorBranch.add(new DefaultMutableTreeNode("firstLoad = "+reactor.getFirstLoad(), false));
                     reactorTree.add(reactorBranch);
                 }
                 tree = new JTree(reactorTree);
